@@ -1,0 +1,138 @@
+# ==========================================
+#        CyayoTimer - Konfigurasi Hadiah
+# ==========================================
+# Dikembangkan oleh Cyayo
+# 
+# PANDUAN FORMAT RESET-TYPE:
+# ------------------------------------------
+# reset-type: DAILY | WEEKLY | MONTHLY | NONE
+# day: MONDAY | TUESDAY | WEDNESDAY | THURSDAY | FRIDAY | SATURDAY | SUNDAY | ALL
+# (Gunakan 'day' jika ingin hadiah hanya bisa diambil di hari tertentu)
+# 
+# CONTOH HADIAH KHUSUS HARI:
+#   special_monday:
+#     enabled: true
+#     reset-type: DAILY
+#     day: MONDAY
+#     display-name: "&b&lSenin Ceria"
+#     item: "DIAMOND_BLOCK"
+#     slot: 10
+#     description:
+#       - "&7Bonus khusus hari Senin!"
+#     playtime-required: 60
+#     lore:
+#       cooldown: " &8- &fReset: %status%"
+#       playtime: " &8- &fMain: &7(%current%/%required%m)"
+#     actions:
+#       vanilla-items: ["DIAMOND_BLOCK:1"]
+# 
+# PANDUAN FORMAT ACTIONS:
+# ------------------------------------------
+# commands:
+#   - "perintah console" (Mendukung PlaceholderAPI)
+# 
+# vanilla-items:
+#   - "MATERIAL:JUMLAH:NAMA_CUSTOM"
+#   Contoh: "DIAMOND:5-15:&bDiamond Hoki"
+# 
+# mmo-items:
+#   - "TIPE:ID:JUMLAH"
+# ------------------------------------------
+
+rewards:
+  daily:
+    enabled: true
+    reset-type: DAILY
+    day: ALL
+    display-name: "&e&lHadiah Harian"
+    item: "CHEST_MINECART"
+    slot: 11
+    description:
+      - "&7Ambil hadiah harianmu!"
+      - ""
+      - "&fHadiah:"
+      - " &8- &a1000 Koin"
+      - " &8- &b1-2x Kunci Common"
+      - " &8- &65-10x Diamond"
+    playtime-required: 30
+    reset-message: "&e&l[CyayoTimer] &aHadiah harian kamu sudah bisa diambil lagi! Ayo kumpulkan waktu mainmu."
+    reset-sound: "ENTITY_EXPERIENCE_ORB_PICKUP;1.0;1.0"
+    lore:
+      cooldown: " &8- &fStatus Reset: %status%"
+      playtime: " &8- &fWaktu Main: %status%"
+    actions:
+      commands:
+        - "eco give %player% 1000"
+      mmo-items:
+        - "MATERIAL:COMMON_KEY:1-2"
+      vanilla-items:
+        - "DIAMOND:5-10:&b&lDiamond Harian"
+      messages:
+        - "&aKamu menerima hadiah harian! Terima kasih sudah bermain."
+
+  weekly:
+    enabled: true
+    reset-type: WEEKLY
+    day: ALL
+    display-name: "&6&lHadiah Mingguan"
+    item: "HOPPER_MINECART"
+    slot: 13
+    description:
+      - "&7Reset setiap Sabtu malam (Tengah malam)."
+      - ""
+      - "&fHadiah:"
+      - " &8- &a5000 Koin"
+      - " &8- &d1x Kunci Rare"
+    playtime-required: 120
+    reset-message: "&6&l[CyayoTimer] &dHadiah mingguan telah di-reset! Jangan lewatkan hadiah menariknya."
+    reset-sound: "ENTITY_PLAYER_LEVELUP;1.0;0.8"
+    lore:
+      cooldown: " &8- &fStatus Reset: %status%"
+      playtime: " &8- &fWaktu Main: %status%"
+    actions:
+      commands:
+        - "eco give %player% 5000"
+      mmo-items:
+        - "MATERIAL:RARE_KEY:1"
+      vanilla-items:
+        - "GOLDEN_APPLE:1-3"
+      messages:
+        - "&dHadiah mingguan berhasil diambil!"
+
+  monthly:
+    enabled: true
+    reset-type: MONTHLY
+    day: ALL
+    display-name: "&b&lHadiah Bulanan"
+    item: "MINECART"
+    slot: 15
+    description:
+      - "&7Reset di setiap akhir bulan."
+      - ""
+      - "&fHadiah:"
+      - " &8- &a25000 Koin"
+      - " &8- &61x Kunci Epic"
+    playtime-required: 600
+    reset-message: "&b&l[CyayoTimer] &bHadiah bulanan baru telah tersedia! Siapkan dirimu untuk hadiah besar."
+    reset-sound: "UI_TOAST_CHALLENGE_COMPLETE;1.0;1.0"
+    lore:
+      cooldown: " &8- &fStatus Reset: %status%"
+      playtime: " &8- &fWaktu Main: %status%"
+    actions:
+      commands:
+        - "eco give %player% 25000"
+      mmo-items:
+        - "MATERIAL:EPIC_KEY:1"
+      vanilla-items:
+        - "NETHERITE_INGOT:1-2"
+      messages:
+        - "&bHadiah bulanan diambil! Kamu memang legenda sejati."
+
+gui:
+  title: "&8» &bAmbil Hadiah"
+  rows: 3
+  filler: "GRAY_STAINED_GLASS_PANE"
+  custom-items:
+    - slot: 22
+      item: "BARRIER"
+      name: "&cTutup Menu"

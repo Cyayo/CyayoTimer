@@ -1,0 +1,15 @@
+name: CyayoTimer
+version: 1.0
+main: com.cyayo.timer.CyayoTimer
+api-version: 1.20
+author: Cyayo
+description: Scheduled rewards and boss events plugin.
+depend: [MMOItems, MythicMobs, FancyHolograms]
+softdepend: [PlaceholderAPI]
+commands:
+  cyayotimer:
+    description: Main command for CyayoTimer
+    aliases: [ctimer, cyayo, ctm]
+  claim:
+    description: Claim your rewards
+    aliases: [hadiah]

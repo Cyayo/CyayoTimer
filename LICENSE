@@ -1,0 +1,30 @@
+﻿CYAYO OPEN-REFERENCE & COLLABORATIVE LICENSE
+Dikembangkan oleh Cyayo Cressiel dengan bantuan asisten AI.
+
+Lisensi ini dibuat untuk memberikan akses kepada komunitas pengembang untuk mempelajari, menggunakan API, dan menjadikan karya ini sebagai referensi, namun tetap melindungi integritas karya asli milik Cyayo Cressiel.
+
+DENGAN MENGAKSES SOURCE CODE INI, ANDA MENYETUJUI SYARAT-SYARAT BERIKUT:
+
+1. TUJUAN EDUKASI & REFERENSI
+   Anda diperbolehkan untuk:
+   a. Mempelajari logika, struktur, dan algoritma yang digunakan dalam source code ini.
+   b. Menjadikan source code ini sebagai referensi atau inspirasi untuk membuat plugin baru milik Anda sendiri, selama plugin tersebut bukan merupakan salinan langsung.
+   c. Menggunakan API yang disediakan (jika ada) untuk integrasi antar-plugin milik Cyayo Cressiel.
+
+2. SEMANGAT KOLABORASI (PANDUAN PENGGUNAAN)
+   Agar ekosistem pengembang tetap sehat, Anda sangat didorong untuk:
+   a. Menggunakan kode ini sebagai fondasi belajar; hindari penyalinan tanpa pemahaman agar Anda berkembang sebagai pengembang.
+   b. Melakukan modifikasi dan memberikan nilai tambah orisinal jika ingin mendistribusikan ulang karya turunan Anda.
+   c. Tetap mencantumkan kredit atau referensi ke repositori ini sebagai bentuk apresiasi terhadap karya asli.
+   d. Berbagi kembali ilmu yang Anda dapatkan dari sini kepada komunitas lainnya.
+
+3. ATRIBUSI & KEPENGURUSAN
+   Source code ini adalah hasil implementasi teknis oleh AI di bawah kendali penuh Cyayo Cressiel. Seluruh desain arsitektur, logika sistem, perhitungan matematika, serta alur kerja dalam proyek ini dirancang secara orisinal oleh Cyayo Cressiel sebagai Arsitek Utama. 
+   AI hanya berperan sebagai asisten dalam penulisan sintaks kode sesuai dengan instruksi spesifik dan arahan logis dari sang Arsitek. Hak moral dan intelektual atas struktur karya ini tetap sepenuhnya milik Cyayo Cressiel.
+
+4. KOMITMEN BERSAMA
+   Lisensi ini bukan untuk membatasi kreativitas Anda, melainkan untuk mencegah penyebaran konten yang identik secara masif (spamming/cloning) tanpa adanya inovasi. Selama Anda berkarya dengan jujur dan menambahkan sentuhan pribadi Anda, Anda sangat dipersilakan untuk menggunakan sumber daya dalam repositori ini.
+
+---
+Dibuat dengan semangat kolaborasi manusia & teknologi,
+Cyayo Cressiel

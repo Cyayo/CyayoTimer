@@ -1,0 +1,137 @@
+bosses:
+  MutantFlower:
+    mythic-mob: "MutantFlower"
+    display-name: "<gradient:#2ecc71:#27ae60><bold>Mutant Flower</bold></gradient>"
+    
+    location:
+      world: "spawn"
+      x: 80
+      y: 115
+      z: 261
+      yaw: 0
+      pitch: 0
+      
+    # Waktu Spawn (format 24 jam WIB)
+    spawn-times:
+      - "10:00"
+      - "16:00"
+      
+    # Hari (SUNDAY, MONDAY, dll)
+    days:
+      - "SUNDAY"
+      - "MONDAY"
+      - "TUESDAY"
+      - "WEDNESDAY"
+      - "THURSDAY"
+      - "FRIDAY"
+      - "SATURDAY"
+
+    # BARU: Gunakan mob berbeda untuk di-track (untuk mob dengan transisi/animasi)
+    tracked-mob:
+      enabled: false
+      internal-name: "MutantFlowerReal"
+
+    # Pengaturan Waktu Event (Boss Kabur)
+    event-time:
+      enabled: true
+      # Durasi dalam menit sebelum boss kabur
+      duration: 30
+      # Pesan saat boss kabur (%boss_name% tersedia)
+      escape-message: "&c[!!!] &e%boss_name% &ftelah melarikan diri karena waktu habis!"
+      # Tipe siaran (GLOBAL atau RADIUS)
+      broadcast-type: GLOBAL
+      # Radius siaran jika tipe adalah RADIUS
+      broadcast-radius: 50.0
+      # Hologram yang muncul selama boss masih hidup (di lokasi spawn)
+      hologram-lines:
+        - "&6&lEVENT SEDANG BERLANGSUNG"
+        - "&e%boss_name% &fada di lokasi!"
+        - "&fSisa Waktu: &b%countdown%"
+      
+    # BARU: Damage Leaderboard (Muncul saat boss mati)
+    leaderboard:
+      enabled: true
+      # Tipe siaran (GLOBAL atau RADIUS)
+      broadcast-type: GLOBAL
+      broadcast-radius: 50.0
+      lines:
+        - "&6&lDAMAGE LEADERBOARD - %boss_name%"
+        - "&e#1. &f%player_1%: &b%damage_1% &7(%percentage_1%%)"
+        - "&e#2. &f%player_2%: &b%damage_2% &7(%percentage_2%%)"
+        - "&e#3. &f%player_3%: &b%damage_3% &7(%percentage_3%%)"
+        - "&6&l----------------------------"
+      
+    # BARU: Hadiah untuk Top Damager
+    rewards:
+      enabled: true
+      top-players: 3 # Jumlah top player yang mendapat hadiah
+      ranks:
+        "1":
+          commands:
+            - "eco give %player% 10000"
+          mmo-items:
+            - "MATERIAL:EPIC_KEY:1"
+          vanilla-items:
+            - "DIAMOND:32:&b&lDiamond Juara"
+          messages:
+            - "&aSelamat! Kamu mendapatkan hadiah Top 1 Damager!"
+        "2":
+          commands:
+            - "eco give %player% 5000"
+          vanilla-items:
+            - "DIAMOND:16"
+          messages:
+            - "&aSelamat! Kamu mendapatkan hadiah Top 2 Damager!"
+        "3":
+          commands:
+            - "eco give %player% 2500"
+          vanilla-items:
+            - "DIAMOND:8"
+          messages:
+            - "&aSelamat! Kamu mendapatkan hadiah Top 3 Damager!"
+
+    # BARU: Death Announcement (Muncul saat boss mati)
+    death:
+      message: "&6[EVENT] &e%boss_name% &ftelah dikalahkan oleh &b%killer%&f!"
+      sound: "UI_BUTTON_CLICK;1.0;1.0"
+      # Tipe siaran (GLOBAL atau RADIUS)
+      broadcast-type: GLOBAL
+      broadcast-radius: 50.0
+      
+    # Pengaturan Hologram (Internal - Tidak butuh plugin lain)
+    hologram:
+      pre-spawn-minutes: 60
+      offset-y: 3.0
+      lines:
+        - "&6&lPERINGATAN: EVENT AKAN DATANG"
+        - "&e%boss_name% &fakan segera muncul"
+        - "&fDalam: &b%countdown%"
+        - "&7Lokasi: &f%x% %y% %z%"
+      
+      # BARU: Pengaturan Tampilan Hologram
+      scale: 1.0
+      background-color: "DEFAULT" # "NONE", "DEFAULT", atau hex #RRGGBB
+      background-alpha: 64         # 0 (transparan) sampai 255 (pekat)
+      shadow: true
+      see-through: false
+      alignment: CENTER # LEFT, CENTER, RIGHT
+
+    # Pengaturan Pengumuman (Menit: pesan & suara)
+    announcements:
+      "60":
+        message: "&c[!!!] &e%boss_name% &fakan muncul dalam &b1 jam&f!"
+        sound: "ENTITY_ENDER_DRAGON_GROWL;1.0;1.0"
+        broadcast-type: GLOBAL
+      "30":
+        message: "&c[!!!] &e%boss_name% &fakan muncul dalam &b30 menit&f!"
+        sound: "BLOCK_NOTE_BLOCK_PLING;1.0;1.2"
+        broadcast-type: GLOBAL
+      "5":
+        message: "&c[!!!] &e%boss_name% &fakan muncul dalam &b5 menit&f!"
+        sound: "BLOCK_NOTE_BLOCK_PLING;1.0;1.5"
+        broadcast-type: GLOBAL
+      "0":
+        message: "&6[EVENT] &e%boss_name% &ftelah muncul di Spawn! Hancurkan sekarang!"
+        sound: "UI_BUTTON_CLICK;1.0;1.0"
+        broadcast-type: RADIUS
+        broadcast-radius: 50.0

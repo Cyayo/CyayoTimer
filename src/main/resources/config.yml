@@ -1,0 +1,39 @@
+# CyayoTimer - Konfigurasi
+# Dikembangkan oleh Cyayo
+
+settings:
+  # Timezone untuk semua event (WIB = UTC+7)
+  timezone: "GMT+7"
+  
+  # Seberapa sering mengecek event (dalam ticks, 20 = 1 detik)
+  timer-check-interval: 20
+
+messages:
+  prefix: "&8[&bCyayo&fTimer&8] &r"
+  no-permission: "&cKamu tidak punya izin untuk melakukan ini!"
+  reloaded: "&aKonfigurasi berhasil dimuat ulang."
+  reward-claimed: "&aKamu telah mengambil hadiah &e%type%&a!"
+  reward-already-claimed: "&cKamu sudah mengambil hadiah &e%type% &chari ini. Reset: &f%time%"
+  insufficient-playtime: "&cWaktu main kamu belum cukup! Kurang &f%time% &clagi untuk hadiah ini."
+  inventory-full: "&cInventori kamu penuh! Kosongkan tasmu dulu."
+  player-only: "&cPerintah ini hanya bisa dijalankan oleh pemain!"
+  gui:
+    click-to-claim: "&e&lKlik untuk klaim!"
+    wait-reset: "&cTunggu waktu reset..."
+    need-playtime: "&cButuh waktu main lagi!"
+  
+sounds:
+  reward-claimed: "ENTITY_PLAYER_LEVELUP;1.0;1.0"
+  reward-failed: "ENTITY_VILLAGER_NO;1.0;1.0"
+  gui-click: "UI_BUTTON_CLICK;1.0;1.0"
+
+# Pengaturan Format Tampilan (Agar tidak ada yang hardcoded)
+formatting:
+  checkmark: "&a✔"
+  playtime-status: "&7(%current%/%required% menit)"
+  reset-countdown:
+    prefix: "&7Reset dalam "
+    days: "h "
+    hours: "j "
+    minutes: "m"
+
