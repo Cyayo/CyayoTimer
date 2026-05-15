@@ -98,7 +98,31 @@ public class RewardGUI {
         FileConfiguration config = plugin.getConfigManager().getRewards();
         String path = "rewards." + type;
         
-        Material mat = Material.valueOf(config.getString(path + ".item", "CHEST_MINECART"));
+        // Check Status
+        boolean canClaim = plugin.getRewardManager().canClaimCooldown(player, type);
+        String resetType = config.getString(path + ".reset-type", "DAILY").toUpperCase();
+        int current = plugin.getRewardManager().getPlayerPlaytime(player, resetType);
+        int required = plugin.getRewardManager().getRequiredPlaytime(type);
+        boolean readyToClaim = canClaim && current >= required;
+
+        // Determine Material
+        String matKey = "item";
+        if (!canClaim) {
+            matKey = "claimed-item";
+        } else if (readyToClaim) {
+            matKey = "ready-item";
+        }
+        
+        String materialName = config.getString(path + "." + matKey);
+        if (materialName == null) materialName = config.getString(path + ".item", "CHEST_MINECART");
+
+        Material mat;
+        try {
+            mat = Material.valueOf(materialName);
+        } catch (IllegalArgumentException e) {
+            mat = Material.CHEST_MINECART;
+        }
+        
         ItemStack item = new ItemStack(mat);
         ItemMeta meta = item.getItemMeta();
         
@@ -110,7 +134,6 @@ public class RewardGUI {
         lore.add("");
         
         // Cooldown Status (Reset Status)
-        boolean canClaim = plugin.getRewardManager().canClaimCooldown(player, type);
         FileConfiguration mainConfig = plugin.getConfigManager().getConfig();
         String checkmark = mainConfig.getString("formatting.checkmark", "&a✔");
         
@@ -119,10 +142,6 @@ public class RewardGUI {
                 .replace("%status%", resetStatus)));
         
         // Playtime Status
-        String resetType = config.getString(path + ".reset-type", "DAILY").toUpperCase();
-        int current = plugin.getRewardManager().getPlayerPlaytime(player, resetType);
-        int required = plugin.getRewardManager().getRequiredPlaytime(type);
-        
         String playtimeStatusFormat = mainConfig.getString("formatting.playtime-status", "&7(%current%/%required% menit)");
         String playtimeStatus = (current >= required) ? checkmark : playtimeStatusFormat
                 .replace("%current%", String.valueOf(current))
@@ -133,7 +152,7 @@ public class RewardGUI {
                 .replace("%required%", String.valueOf(required))
                 .replace("%status%", playtimeStatus)));
         
-        if (canClaim && current >= required) {
+        if (readyToClaim) {
             lore.add("");
             lore.add(plugin.getConfigManager().getMessage("gui.click-to-claim"));
         } else if (!canClaim) {
